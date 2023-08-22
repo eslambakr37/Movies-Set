@@ -5,7 +5,7 @@ let navOpener = document.querySelector(".nav-contloler i"); //select navbar togg
 let smallNavOpener = document.querySelector('.small-nav-controller');
 let smallNavOpenerIcon = document.querySelector('.small-nav-controller i'); //select navbar toggler at small screens
 let li = document.querySelectorAll(".sections li"); //select navebar list itmes
-
+let navbarState = 'close';
 navOpener.addEventListener('click', navContloler);
 smallNavOpener.addEventListener('click', navContloler);
 
@@ -40,6 +40,7 @@ function navContloler() {
         navOpener.classList.add('fa-rotate-90');
         smallNavOpenerIcon.classList.add('fa-rotate-90');
         smallNavOpenerIcon.classList.add('active');
+        navbarState = 'open';
     }
     else {
         for (let i = 0; i < li.length; i++) {
@@ -53,19 +54,22 @@ function navContloler() {
         smallNavOpenerIcon.classList.remove('fa-rotate-90');
         navOpener.classList.remove('fa-rotate-90');
         smallNavOpenerIcon.classList.remove('active');
+        navbarState = 'close';
     }
 
 }
 
 let navbar = document.querySelectorAll('nav *');
+// console.log(navbar);
 window.addEventListener('click', function (e) {
-    let state = 'close';
+    console.log(e.target);
+    let action = 'close';
     for (let i = 0; i < navbar.length; i++) {
         if (e.target == navbar[i]) {
-            state = 'open'
+            action = 'open';
         }
     }
-    if (state == 'close') {
+    if (action == 'close' && navbarState == 'open') {
         navContloler();
     }
 })
