@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Set</title>
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="CSS/all.min.css">
+    <!-- Main CSS file -->
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Start Navbar -->
+        <nav>
+            <div class="static-nav d-flex flex-column justify-content-between ">
+                <div class="logo mx-auto  py-3 w-75">
+                    <img class="w-100" src="images/logo.png" alt="">
+                </div>
+                <div class="nav-contloler mx-auto fs-3">
+                    <i class="fa-solid fa-bars "></i>
+                </div>
+                <div class="social mx-auto  d-flex flex-column">
+                    <i class="fa-solid fa-globe py-3"></i>
+                    <i class="fa-sharp fa-solid fa-share-nodes pb-3"></i>
+                </div>
+
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+        <!-- Strat Landing -->
+        <section class="landing">
+            <div class="dynamic-nav d-flex align-items-center flex-column ">
+                <div class="inner-content h-100 d-none flex-column justify-content-between m-3">
+                    <ul id="list" class="sections py-3 list-unstyled list-group fw-bold fs-4">
+                        <li id="now_playing" class="py-2">Now Playing</li>
+                        <li id="top_rated" class="py-2">Top Rated</li>
+                        <li id="popular" class="py-2">Popular</li>
+                        <li id="upcoming" class="py-2">Upcoming</li>
+                        <li id="trending" class="py-2">Trending</li>
+                        <li id="favorites" class="py-2">Your Favorites</li>
+                    </ul>
+                    <div class="socil-copy">
+                        <ul class="social d-flex list-unstyled gap-3">
+                            <a class="d-block text-white" href="#">
+                                <i class="fa-brands fa-facebook-f fa-lg facebook rounded-circle"></i>
+                            </a>
+                            <a class="d-block text-light" href="#">
+                                <i class="fa-brands fa-twitter fa-lg twitter rounded-circle"></i>
+                            </a>
+                            <a class="d-block text-light" href="#">
+                                <i class="fa-brands fa-youtube fa-lg youtube rounded-circle"></i>
+                            </a>
+                        </ul>
+                        <span class="text-white-50" >Copyright &copy; 2023 All Rights Reserved.</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div
+                class="w-100 min-vh-100 background flex-column d-flex justify-content-center align-items-md-center text-center">
+                <h1 class="fw-bold fw-bold p-4">Movies Set</h1>
+                <h3 class="fw-bold fs-2 fw-bold">Lorem ipsum dolor sit amet consectetur odit?</h3>
+            </div>
+            <div class="search w-50 mx-auto">
+                <input id="searchInput" class=" form-control rounded-pill" type="text"
+                    placeholder="Search By Movie Name">
+            </div>
+
+        </section>
+        <!-- End Landing -->
+    </header>
+
+    <!-- Start Posters -->
+    <section class="posters-container">
+        <div class="container py-5 text-white text-center">
+            <div id="posters" class="row text-center">
+
+            </div>
+        </div>
+    </section>
+    <!-- End Posters -->
+
+
+    <!-- <div id="floating-container" class="d-none align-items-center justify-content-center">
+        <div class="container">
+            <div class="row">
+                <div class="offset-2 col-lg-8 col-md-10">
+                    <div class="row">
+                        <div id="floating-poster-img" class="offset-md-1 col-lg-6 col-md-5 ">
+                            <img class="w-100  rounded-start-2 " src="images/fiVW06jE7z9YnO4trhaMEdclSiC.jpg" alt="">
+                        </div>
+                        <div
+                            class="col-lg-6 col-md-5 position-relative d-flex align-items-center justify-content-center bg-body-secondary rounded-end-2 ">
+                            <i id="close" class="fa-solid fa-circle-xmark fs-5"></i>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi expedita minima nam
+                                dolorem ab
+                                fugiat inventore dolores unde ea magnam.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div> -->
+
+    <script src="JS/main.js"></script>
+</body>
+
+</html>

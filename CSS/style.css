@@ -1,0 +1,181 @@
+:root {
+    --main-transition: 0.5s;
+    --hover-color: #86b7fe;
+}
+
+body {
+    font-family: 'segoe ui light' !important;
+    background-color: rgba(17, 17, 17)
+}
+
+
+/* Start Navbar */
+.static-nav {
+    width: 60px;
+    height: 100vh;
+    position: fixed;
+    background-color: #f8f6f6;
+    z-index: 5555;
+    left: 0px;
+    transition: left var(--main-transition);
+}
+
+.dynamic-nav {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 0;
+    height: 100vh;
+    z-index: 5555;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: width var(--main-transition);
+    color: white;
+}
+
+.nav-contloler i {
+    cursor: pointer;
+    transition: var(--main-transition);
+}
+
+.nav-contloler i:hover,
+.dynamic-nav .sections li:hover {
+    color: var(--hover-color);
+}
+
+.dynamic-nav .sections li {
+    position: relative !important;
+    top: 250%;
+    transition: top;
+    transition-delay: 1.5s;
+    animation-name: down;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    cursor: pointer;
+}
+.dynamic-nav .socil-copy{
+    position: relative !important;
+    top: 250%;
+    transition: top;
+    transition-delay: 1.5s;
+    animation-name: down;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes top-move {
+    from {
+        top: 250%;
+    }
+
+    to {
+        top: 0%;
+    }
+}
+
+
+
+.inner-content .social i {
+    transition: var(--main-transition);
+}
+
+.inner-content .social .facebook:hover {
+    color: #1877f2;
+}
+
+.inner-content .social .twitter:hover {
+    color: #1da1f2;
+}
+.inner-content .social .youtube:hover {
+    color: #ff0000;
+}
+/* End Navbar */
+
+/* Strat Landing */
+.background {
+    height: 500px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(17, 17, 17, 1)), url(../images/background-modified.jpg);
+    background-size: cover;
+    background-position: center center;
+    color: #ffffff;
+    text-shadow: 2px 4px #000
+}
+/* End Landing */
+
+
+.movie-details {
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: var(--main-transition)
+}
+.poster:hover .movie-details {
+    top: 0%;
+}
+
+h1 {
+    font-size: 50px !important;
+}
+
+#searchInput::placeholder {
+    transition: var(--main-transition);
+}
+
+#searchInput:focus::placeholder {
+    opacity: 0;
+}
+
+
+
+.active {
+    color: var(--hover-color);
+}
+
+.poster #title {
+
+    font-size: 40px !important;
+}
+
+.poster h3,
+.poster h5 {
+    font-weight: bold;
+}
+
+.poster h5 span {
+    font-weight: normal;
+}
+
+.poster i {
+    cursor: pointer;
+    transition: var(--main-transition);
+}
+
+.poster i:hover {
+    color: var(--hover-color);
+}
+
+.poster .dele-fav:hover {
+    color: #F06070;
+}
+
+/* #floating-container {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    bottom: 0%;
+    right: 0%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#floating-poster-img {
+    margin: 0;
+    padding: 0;
+}
+
+#close {
+    position: absolute;
+    top: 2.5%;
+    right: 3.5%;
+    cursor: pointer;
+} */
