@@ -39,12 +39,13 @@ body {
     border-width: 12px;
     border-style: solid;
     border-color: transparent #f8f6f6 transparent transparent;
-    right: 91%;
+    right: 90%;
     top: 50%;
     transform: translateY(-50%);
 }
 .small-nav-controller i{
     transition: var(--main-transition);
+    cursor: pointer;
 }
 .dynamic-nav {
     position: fixed;
