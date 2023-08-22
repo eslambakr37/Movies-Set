@@ -60,9 +60,7 @@ function navContloler() {
 }
 
 let navbar = document.querySelectorAll('nav *');
-// console.log(navbar);
 window.addEventListener('click', function (e) {
-    console.log(e.target);
     let action = 'close';
     for (let i = 0; i < navbar.length; i++) {
         if (e.target == navbar[i]) {
