@@ -5,55 +5,39 @@ let navOpener = document.querySelector(".nav-contloler i"); //select navbar togg
 let smallNavOpener = document.querySelector('.small-nav-controller');
 let smallNavOpenerIcon = document.querySelector('.small-nav-controller i'); //select navbar toggler at small screens
 let li = document.querySelectorAll(".sections li"); //select navebar list itmes
+
 navOpener.addEventListener('click', navContloler);
+smallNavOpener.addEventListener('click', navContloler);
 
 function navContloler() {
     let staticNav = document.querySelector(".static-nav"); //select static part in navbar
-    let dynamicNav = document.querySelector(".dynamic-nav"); //select dynamic part in navbar
     let staticNavStyle = window.getComputedStyle(staticNav);
     let innerContent = document.querySelector(".inner-content"); //select inner content of dynamic part in navbar
     let socilAndCopy = document.querySelector('.socil-copy');
-    innerContent.classList.replace('d-none', 'd-flex');
-    if (staticNavStyle.getPropertyValue('left') == '0px') {
-        staticNav.style.left = `16%`;
-        dynamicNav.style.width = `16%`;
-        for (let i = 0; i < li.length; i++) {
-            li[i].style.animationDelay = `${(i / 10)}s`
-            li[i].style.animationName = 'top-move';
-            li[i].style.top = '0%';
-        }
-        socilAndCopy.style.animationName = 'top-move';
-        socilAndCopy.style.top = '0%'
-        navOpener.classList.add('fa-rotate-90');
-    }
-    else {
-        for (let i = 0; i < li.length; i++) {
-            li[i].style.top = '250%';
-        }
-        socilAndCopy.style.top = '250%'
-        innerContent.classList.replace('d-flex', 'd-none');
-        staticNav.style.left = 0;
-        dynamicNav.style.width = 0;
-        navOpener.classList.remove('fa-rotate-90');
-    }
-}
-
-smallNavOpener.addEventListener('click',function(){
     let dynamicNav = document.querySelector(".dynamic-nav"); //select dynamic part in navbar
-    let staticNavStyle = window.getComputedStyle(smallNavOpener);
-    let innerContent = document.querySelector(".inner-content"); //select inner content of dynamic part in navbar
-    let socilAndCopy = document.querySelector('.socil-copy');
+    let state = 0;
+    if (staticNavStyle.getPropertyValue('display') == 'none') {
+        staticNavStyle = window.getComputedStyle(smallNavOpener);
+        state = 'small screen';
+    }
     innerContent.classList.replace('d-none', 'd-flex');
     if (staticNavStyle.getPropertyValue('left') == '0px') {
-        smallNavOpener.style.left = `50%`;
-        dynamicNav.style.width = `50%`;
+        if (state == 'small screen') {
+            smallNavOpener.style.left = `50%`;
+            dynamicNav.style.width = `50%`;
+        }
+        else {
+            staticNav.style.left = `16%`;
+            dynamicNav.style.width = `16%`;
+        }
         for (let i = 0; i < li.length; i++) {
             li[i].style.animationDelay = `${(i / 10)}s`
             li[i].style.animationName = 'top-move';
             li[i].style.top = '0%';
         }
         socilAndCopy.style.animationName = 'top-move';
-        socilAndCopy.style.top = '0%'
+        socilAndCopy.style.top = '0%';
+        navOpener.classList.add('fa-rotate-90');
         smallNavOpenerIcon.classList.add('fa-rotate-90');
         smallNavOpenerIcon.classList.add('active');
     }
@@ -64,12 +48,27 @@ smallNavOpener.addEventListener('click',function(){
         socilAndCopy.style.top = '250%'
         innerContent.classList.replace('d-flex', 'd-none');
         smallNavOpener.style.left = 0;
+        staticNav.style.left = 0;
         dynamicNav.style.width = 0;
         smallNavOpenerIcon.classList.remove('fa-rotate-90');
+        navOpener.classList.remove('fa-rotate-90');
         smallNavOpenerIcon.classList.remove('active');
     }
-})
 
+}
+
+let navbar = document.querySelectorAll('nav *');
+window.addEventListener('click', function (e) {
+    let state = 'close';
+    for (let i = 0; i < navbar.length; i++) {
+        if (e.target == navbar[i]) {
+            state = 'open'
+        }
+    }
+    if (state == 'close') {
+        navContloler();
+    }
+})
 //End navbar behavior
 
 
@@ -109,12 +108,8 @@ function dispalyMovies(arr) {
 </div>`;
     }
     document.querySelector('#posters').innerHTML = cartoona;
-    // let moviesTitle = document.querySelectorAll(".poster #title");
     favButton = document.querySelectorAll('.poster .add-fav');
     for (let i = 0; i < favButton.length; i++) {
-        // moviesTitle[i].addEventListener('click', function () {
-        //     serch(i);
-        // });
         favButton[i].addEventListener('click', function () {
             if (favButton[i].classList.contains('active')) {
                 favButton[i].classList.remove('active');
@@ -140,13 +135,6 @@ function dispalyMovies(arr) {
 
 
 
-// let floatingImage = document.querySelector('#floating-poster-img img');
-// let floatingContainer = document.getElementById("floating-container");
-// let closeIcone = document.getElementById('close');
-// closeIcone.addEventListener('click', close);
-// function close() {
-//     floatingContainer.classList.replace('d-flex', 'd-none');
-// }
 
 
 // Change between APIS
@@ -225,9 +213,6 @@ function disFav(arr) {
 
     let deleteFavButton = document.querySelectorAll('.poster .dele-fav');
     for (let i = 0; i < deleteFavButton.length; i++) {
-        // moviesTitle[i].addEventListener('click', function () {
-        //     serch(i);
-        // });
         deleteFavButton[i].addEventListener('click', function () {
             removeFromFav(arr[i]);
         });
@@ -269,34 +254,3 @@ searchInput.addEventListener('keyup', function () {
     }
 })
 
-
-// function serch(index) {
-//     // floatingImage.src = `https://image.tmdb.org/t/p/w500${finalResult[index].poster_path}`;
-//     console.log(`https://image.tmdb.org/t/p/w500${finalResult[index].poster_path}`);
-//     // floatingContainer.classList.replace('d-none', 'd-flex');
-// }
-
-
-
-// function(){
-//     = document.querySelectorAll(".poster-img");
-//     console.log(posterImg);
-//     for (i = 0; i < poster.length; i++) {
-//         console.log(i);
-//         // poster[i].addEventListener('click', function (e) {
-//         //     console.log(e.target);
-//         // })
-//     }
-// }
-
-
-
-
-
-//https://api.themoviedb.org/3/trending/movie/day?language=en-US&page=1&api_key=861c6caa67ca6de1e1fa1dbde7a2fac3
-
-
-// https://image.tmdb.org/t/p/w500${finalResult[i].poster_path}
-//now_playing
-//top_rated
-//popular
