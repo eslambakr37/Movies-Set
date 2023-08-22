@@ -2,6 +2,8 @@
 
 //Start navbar behavior
 let navOpener = document.querySelector(".nav-contloler i"); //select navbar toggler
+let smallNavOpener = document.querySelector('.small-nav-controller');
+let smallNavOpenerIcon = document.querySelector('.small-nav-controller i'); //select navbar toggler at small screens
 let li = document.querySelectorAll(".sections li"); //select navebar list itmes
 navOpener.addEventListener('click', navContloler);
 
@@ -35,6 +37,39 @@ function navContloler() {
         navOpener.classList.remove('fa-rotate-90');
     }
 }
+
+smallNavOpener.addEventListener('click',function(){
+    let dynamicNav = document.querySelector(".dynamic-nav"); //select dynamic part in navbar
+    let staticNavStyle = window.getComputedStyle(smallNavOpener);
+    let innerContent = document.querySelector(".inner-content"); //select inner content of dynamic part in navbar
+    let socilAndCopy = document.querySelector('.socil-copy');
+    innerContent.classList.replace('d-none', 'd-flex');
+    if (staticNavStyle.getPropertyValue('left') == '0px') {
+        smallNavOpener.style.left = `50%`;
+        dynamicNav.style.width = `50%`;
+        for (let i = 0; i < li.length; i++) {
+            li[i].style.animationDelay = `${(i / 10)}s`
+            li[i].style.animationName = 'top-move';
+            li[i].style.top = '0%';
+        }
+        socilAndCopy.style.animationName = 'top-move';
+        socilAndCopy.style.top = '0%'
+        smallNavOpenerIcon.classList.add('fa-rotate-90');
+        smallNavOpenerIcon.classList.add('active');
+    }
+    else {
+        for (let i = 0; i < li.length; i++) {
+            li[i].style.top = '250%';
+        }
+        socilAndCopy.style.top = '250%'
+        innerContent.classList.replace('d-flex', 'd-none');
+        smallNavOpener.style.left = 0;
+        dynamicNav.style.width = 0;
+        smallNavOpenerIcon.classList.remove('fa-rotate-90');
+        smallNavOpenerIcon.classList.remove('active');
+    }
+})
+
 //End navbar behavior
 
 

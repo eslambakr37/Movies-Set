@@ -19,7 +19,33 @@ body {
     left: 0px;
     transition: left var(--main-transition);
 }
-
+.small-nav-controller{
+    position: fixed;
+    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color:#f8f6f6 ;
+    z-index: 900;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+    transition: left var(--main-transition);
+}
+.small-nav-controller::before{
+    content: "";
+    position: absolute;
+    border-width: 12px;
+    border-style: solid;
+    border-color: transparent #f8f6f6 transparent transparent;
+    right: 91%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.small-nav-controller i{
+    transition: var(--main-transition);
+}
 .dynamic-nav {
     position: fixed;
     top: 0px;
